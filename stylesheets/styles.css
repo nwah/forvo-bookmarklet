@@ -183,6 +183,34 @@ footer {
   bottom:50px;
 }
 
+input {
+  display: block;
+  width: 320px;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 5px 10px;
+  color: #4c82ef;
+}
+
+.bookmarklet {
+  display: inline-block;
+  line-height: 39px;
+  padding: 0 18px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #4c82ef;
+  background: #dce8ff;
+  border: 3px #4c82ef solid; 
+  border-radius: 5px;
+}
+
+.bookmarklet.disabled {
+  opacity: 0.15;
+  pointer-events: none;
+  cursor: default;
+}
+
 @media print, screen and (max-width: 960px) {
   
   div.wrapper {

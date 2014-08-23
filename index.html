@@ -32,12 +32,81 @@
 <p>You can also restrict the search to a specific language by appending a slash, followed by the 2-letter language code, e.g. <code>que/es</code> or <code>skal/no</code>.</p>
 
 <p>A (free) Forvo API key is required.</p>
+
+<hr>
+
+<h2>Installing</h2>
+<ol>
+  <li>
+    <p>Paste in your <a href="#api_key">Forvo API Key</a>:</p>
+    <input type="text" name="api-key" placeholder="Your Forvo API Key"><br><br>
+  </li>
+
+  <li>
+    <p>Drag this button to your bookmarks bar:</p>
+    <a href="#" class="bookmarklet disabled">Forvo</a>
+  </li>
+</ol>
+
+<hr>
+
+<h2>Using</h2>
+
+<hr id="api_key">
+
+<h2>Getting a Forvo API Key</h2>
+
+
+  
+
+
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/nwah">nwah</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+  
+    <script>
+      var input = document.querySelector('input[name="api-key"]');
+      var button = document.querySelector('.bookmarklet');
+      
+      var srcURL = 'https://rawgit.com/nwah/forvo-bookmarklet/master/forvo-bookmarklet.js';
+      var src;
+
+      setup();
+
+      function setup() {
+        fetchSource();
+
+        input.addEventListener('change', updateButton);
+        input.addEventListener('keyup', updateButton);
+        input.addEventListener('input', updateButton);
+      }
+
+      function fetchSource() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', srcURL);
+        xhr.onload = function() {
+          src = xhr.responseText;
+          updateButton();
+        };
+        xhr.send();
+      }
+
+      function updateButton() {
+        var key = input.value.replace(/^\s+|\s+$/g, '');
+
+        if (!key || !src) {
+          button.className = 'bookmarklet disabled';
+          return;
+        }
+
+        button.className = 'bookmarklet';
+        button.href = 'javascript:' + encodeURIComponent(src.replace('{{API_KEY}}', key));
+      }
+    </script>
+
     <script src="javascripts/scale.fix.js"></script>
     
   </body>
