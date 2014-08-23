@@ -103,7 +103,8 @@
         }
 
         button.className = 'bookmarklet';
-        button.href = 'javascript:' + encodeURIComponent(src.replace('{{API_KEY}}', key));
+        var userSrc = src.replace('{{API_KEY}}', key).replace(/\s+/gm, ' ');
+        button.href = 'javascript:' + encodeURIComponent(userSrc);
       }
     </script>
 
