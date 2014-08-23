@@ -1,6 +1,8 @@
 Forvo Bookmarklet
 =================
 
+![Screenshot](http://nwah.github.io/forvo-bookmarklet/images/screenshot.jpg)
+
 This bookmarklet lets you quickly hear and download pronunciations by native speakers of almost any word in any language from Forvo.com.
 
 When activated, it'll use whatever word you currently have selected, or you can type in anything else.
