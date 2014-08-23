@@ -12,7 +12,7 @@
       + "and the 2-letter language code after your word, e.g. "
       + "'skal/no' or 'que/es')"
     );
-    var input = window.prompt(, selection).split(/\s*\/\s*/);
+    var input = window.prompt(message, selection).split(/\s*\/\s*/);
     var word = input[0];
     var lang = input[1];
 
